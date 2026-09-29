@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opsharness-ambient"
+version = "0.1.0"
+description = "An open ambient personal assistant agent that runs on the opsharness agent harness"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = ["opsharness @ git+https://github.com/prithsk/opsharness@v0.2.0"]
+
+[project.entry-points."opsharness.worlds"]
+ambient = "opsharness_ambient.world:AmbientEnv"
+
+[tool.setuptools]
+packages = ["opsharness_ambient"]
+
+[tool.setuptools.package-data]
+opsharness_ambient = ["*.md"]
